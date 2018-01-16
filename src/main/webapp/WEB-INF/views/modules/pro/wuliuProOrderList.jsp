@@ -18,8 +18,8 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="${ctx}/pro/proOrder/">订单列表</a></li>
-		<shiro:hasPermission name="pro:proOrder:edit"><li><a href="${ctx}/pro/proOrder/form">订单添加</a></li></shiro:hasPermission>
+		<li class="active"><a href="${ctx}/pro/proOrder/list2">物流列表</a></li>
+		
 	</ul>
 	<form:form id="searchForm" modelAttribute="proOrder" action="${ctx}/pro/proOrder/" method="post" class="breadcrumb form-search">
 		<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
@@ -66,7 +66,7 @@
 					<fmt:formatDate value="${proOrder.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
 				</td>
 				<shiro:hasPermission name="pro:proOrder:edit"><td>
-    				<a href="${ctx}/pro/proOrder/form?id=${proOrder.id}">修改</a>
+    				<a href="${ctx}/pro/proOrder/wlform?id=${proOrder.id}">修改</a>
 					<a href="${ctx}/pro/proOrder/delete?id=${proOrder.id}" onclick="return confirmx('确认要删除该订单吗？', this.href)">删除</a>
 				</td></shiro:hasPermission>
 			</tr>

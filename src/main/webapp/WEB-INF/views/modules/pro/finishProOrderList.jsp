@@ -18,7 +18,7 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="${ctx}/pro/proOrder/">订单列表</a></li>
+		<li class="active"><a href="${ctx}/pro/proOrder/list2">订单列表</a></li>
 		<shiro:hasPermission name="pro:proOrder:edit"><li><a href="${ctx}/pro/proOrder/form">订单添加</a></li></shiro:hasPermission>
 	</ul>
 	<form:form id="searchForm" modelAttribute="proOrder" action="${ctx}/pro/proOrder/" method="post" class="breadcrumb form-search">

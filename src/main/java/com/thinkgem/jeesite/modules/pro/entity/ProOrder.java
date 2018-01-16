@@ -10,13 +10,13 @@ import com.thinkgem.jeesite.common.persistence.DataEntity;
 /**
  * 订单Entity
  * @author hyj
- * @version 2018-01-12
+ * @version 2018-01-13
  */
 public class ProOrder extends DataEntity<ProOrder> {
 	
 	private static final long serialVersionUID = 1L;
 	private String code;		// 订单编号
-	private String receiveName;		// 收件人名称
+	private String receiveName;		// 收件人姓名
 	private String receivePhone;		// 收件人手机
 	private String receiveAddr;		// 收件人地址
 	private Double weight;		// 重量
@@ -34,7 +34,7 @@ public class ProOrder extends DataEntity<ProOrder> {
 		super(id);
 	}
 
-	@Length(min=1, max=255, message="订单编号长度必须介于 1 和 255 之间")
+	@Length(min=0, max=255, message="订单编号长度必须介于 0 和 255 之间")
 	public String getCode() {
 		return code;
 	}
@@ -43,7 +43,7 @@ public class ProOrder extends DataEntity<ProOrder> {
 		this.code = code;
 	}
 	
-	@Length(min=0, max=64, message="收件人名称长度必须介于 0 和 64 之间")
+	@Length(min=0, max=64, message="收件人姓名长度必须介于 0 和 64 之间")
 	public String getReceiveName() {
 		return receiveName;
 	}

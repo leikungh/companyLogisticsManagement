@@ -43,6 +43,38 @@
 			<if test="code != null and code != ''">
 				AND a.code = #{code}
 			</if>
+			<if test="receiveName != null and receiveName != ''">
+				AND a.receive_name = #{receiveName}
+			</if>
+				<if test="status != null and status != ''">
+				AND a.status = #{status}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findList2" resultType="ProOrder">
+		SELECT 
+			<include refid="proOrderColumns"/>
+		FROM pro_order a
+		<include refid="proOrderJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="code != null and code != ''">
+				AND a.code = #{code}
+			</if>
+			<if test="receiveName != null and receiveName != ''">
+				AND a.receive_name = #{receiveName}
+			</if>
+			AND a.status != 4
+			
 		</where>
 		<choose>
 			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
@@ -75,6 +107,7 @@
 	<insert id="insert">
 		INSERT INTO pro_order(
 			id,
+			code,
 			receive_name,
 			receive_phone,
 			receive_addr,
@@ -82,6 +115,7 @@
 			send_name,
 			send_phone,
 			send_addr,
+			status,
 			remarks,
 			create_by,
 			create_date,
@@ -90,6 +124,7 @@
 			del_flag
 		) VALUES (
 			#{id},
+			#{code},
 			#{receiveName},
 			#{receivePhone},
 			#{receiveAddr},
@@ -97,6 +132,7 @@
 			#{sendName},
 			#{sendPhone},
 			#{sendAddr},
+			#{status},
 			#{remarks},
 			#{createBy.id},
 			#{createDate},

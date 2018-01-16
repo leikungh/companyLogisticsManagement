@@ -36,7 +36,7 @@
 		<div class="control-group">
 			<label class="control-label">订单编号：</label>
 			<div class="controls">
-				<form:input path="code" readonly="readonly" htmlEscape="false" maxlength="255" class="input-xlarge "/>
+				<form:input path="code" htmlEscape="false" maxlength="255" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="control-group">
@@ -85,6 +85,12 @@
 			<label class="control-label">留言信息：</label>
 			<div class="controls">
 				<form:textarea path="remarks" htmlEscape="false" rows="4" maxlength="255" class="input-xxlarge "/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">物流状态：</label>
+			<div class="controls">
+				<form:input path="status" htmlEscape="false" maxlength="64" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="form-actions">

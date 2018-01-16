@@ -16,7 +16,7 @@ import com.thinkgem.jeesite.modules.pro.dao.ProOrderDao;
 /**
  * 订单Service
  * @author hyj
- * @version 2018-01-12
+ * @version 2018-01-13
  */
 @Service
 @Transactional(readOnly = true)
@@ -32,6 +32,10 @@ public class ProOrderService extends CrudService<ProOrderDao, ProOrder> {
 	
 	public Page<ProOrder> findPage(Page<ProOrder> page, ProOrder proOrder) {
 		return super.findPage(page, proOrder);
+	}
+	
+	public Page<ProOrder> findPage2(Page<ProOrder> page, ProOrder proOrder) {
+		return super.findPage2(page, proOrder);
 	}
 	
 	@Transactional(readOnly = false)

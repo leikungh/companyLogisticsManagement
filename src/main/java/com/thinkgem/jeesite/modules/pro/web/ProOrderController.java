@@ -3,6 +3,8 @@
  */
 package com.thinkgem.jeesite.modules.pro.web;
 
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,7 +27,7 @@ import com.thinkgem.jeesite.modules.pro.service.ProOrderService;
 /**
  * 订单Controller
  * @author hyj
- * @version 2018-01-12
+ * @version 2018-01-13
  */
 @Controller
 @RequestMapping(value = "${adminPath}/pro/proOrder")
@@ -49,9 +51,29 @@ public class ProOrderController extends BaseController {
 	@RequiresPermissions("pro:proOrder:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(ProOrder proOrder, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Page<ProOrder> page = proOrderService.findPage(new Page<ProOrder>(request, response), proOrder); 
+		Page<ProOrder> page = proOrderService.findPage2(new Page<ProOrder>(request, response), proOrder); 
 		model.addAttribute("page", page);
 		return "modules/pro/proOrderList";
+	}
+	
+	//已完成订单列表
+	@RequiresPermissions("pro:proOrder:view")
+	@RequestMapping(value = "list2")
+	public String list2(ProOrder proOrder, HttpServletRequest request, HttpServletResponse response, Model model) {
+		proOrder.setStatus("4");
+		Page<ProOrder> page = proOrderService.findPage(new Page<ProOrder>(request, response), proOrder); 
+		model.addAttribute("page", page);
+		return "modules/pro/finishProOrderList";
+	}
+	
+
+	//物流列表
+	@RequiresPermissions("pro:proOrder:view")
+	@RequestMapping(value = "wllist")
+	public String wllist(ProOrder proOrder, HttpServletRequest request, HttpServletResponse response, Model model) {
+		Page<ProOrder> page = proOrderService.findPage2(new Page<ProOrder>(request, response), proOrder); 
+		model.addAttribute("page", page);
+		return "modules/pro/wuliuProOrderList";
 	}
 
 	@RequiresPermissions("pro:proOrder:view")
@@ -60,6 +82,14 @@ public class ProOrderController extends BaseController {
 		model.addAttribute("proOrder", proOrder);
 		return "modules/pro/proOrderForm";
 	}
+	
+	//物流表单
+	@RequiresPermissions("pro:proOrder:view")
+	@RequestMapping(value = "wlform")
+	public String wlform(ProOrder proOrder, Model model) {
+		model.addAttribute("proOrder", proOrder);
+		return "modules/pro/wuliuproOrderForm";
+	}
 
 	@RequiresPermissions("pro:proOrder:edit")
 	@RequestMapping(value = "save")
@@ -67,8 +97,13 @@ public class ProOrderController extends BaseController {
 		if (!beanValidator(model, proOrder)){
 			return form(proOrder, model);
 		}
+		//默认状态是1，已收订单
+		proOrder.setStatus("1");
+		//默认添加订单编号，UUID
+		String id = getUUID();
+		proOrder.setCode(id);
 		proOrderService.save(proOrder);
-		addMessage(redirectAttributes, "保存订单成功");
+		addMessage(redirectAttributes, "保存订单成功,订单编号为："+id);
 		return "redirect:"+Global.getAdminPath()+"/pro/proOrder/?repage";
 	}
 	
@@ -78,6 +113,16 @@ public class ProOrderController extends BaseController {
 		proOrderService.delete(proOrder);
 		addMessage(redirectAttributes, "删除订单成功");
 		return "redirect:"+Global.getAdminPath()+"/pro/proOrder/?repage";
+	}
+	
+	/** 
+	* 获得一个UUID 
+	* @return String UUID 
+	*/ 
+	public static String getUUID(){ 
+	String uuid = UUID.randomUUID().toString(); 
+	//去掉“-”符号 
+	return uuid.replaceAll("-", "");
 	}
 
 }

@@ -10,7 +10,7 @@ import com.thinkgem.jeesite.modules.pro.entity.ProOrder;
 /**
  * 订单DAO接口
  * @author hyj
- * @version 2018-01-12
+ * @version 2018-01-13
  */
 @MyBatisDao
 public interface ProOrderDao extends CrudDao<ProOrder> {
