@@ -1,3 +1,4 @@
+@charset "utf-8";
 /*!
  * Copyright &copy; 2012-2013 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
  */
@@ -68,8 +69,8 @@ footer .footer_nav, footer .copyright{margin:5px 0;}
     width: 31%;
     text-align: center;
 }
-.home-function>div.quick-mail:hover,
-.home-function>div.quick-evaluate:hover{
+.home-function>div#quick-mail:hover,
+.home-function>div#quick-evaluate:hover{
     background: #00afec;
     moz-box-shadow: 2px 2px 5px #ccc, 2px 2px 5px #ccc;
     -webkit-box-shadow: 2px 2px 5px #ccc, 2px 2px 5px #ccc;
@@ -85,8 +86,8 @@ footer .footer_nav, footer .copyright{margin:5px 0;}
     padding: 0;
     margin: 10px 0;
 }
-.home-function>div.quick-mail:hover h4,
-.home-function>div.quick-evaluate:hover h4{
+.home-function>div#quick-mail:hover h4,
+.home-function>div#quick-evaluate:hover h4{
     color: #fff;
     transition: all 0.2s;
 }
@@ -118,4 +119,22 @@ footer .footer_nav, footer .copyright{margin:5px 0;}
 .quick-sea button:hover{
     background: #007bca;
     transition: all 0.2s;
+}
+/*快速寄件 模态框*/
+#online-mail{
+    margin-left: -470px;
+    width: 940px;
+}
+#online-mail table{
+    margin-bottom: 20px;
+    width: 100%;
+}
+#online-mail table caption{
+    color: #007bca;
+    font-size: 16px;
+    text-align: left;
+}
+/*快速评价 模态框*/
+#online-evaluate{
+
 }
