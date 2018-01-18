@@ -6,6 +6,8 @@ a:hover,a:active{color:#ff0000;text-decoration:underline;}
 a.btn.btn-primary{color:#ffffff;}
 
 body {padding-bottom:3px;font-size:14px;}
+body *{font-family: "Microsoft Yahei";}
+
 .navbar.navbar-fixed-top{_margin-bottom:10px;}
 
 h4{border-left:3px solid #dddddd;background-color:#f5f5f5;padding:5px;margin:10px 0 5px;}
@@ -52,3 +54,68 @@ footer .footer_nav, footer .copyright{margin:5px 0;}
 .page_small li a:hover{border:1px solid #9cf;}
 .page_small *{-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;}
  */
+
+/*首页*/
+.home-function{
+    padding-left: 20px;
+}
+.home-function>div{
+    border: 1px solid #aaa;
+    float: left;
+    height: 320px;
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 31%;
+    text-align: center;
+}
+.home-function>div.quick-mail:hover,
+.home-function>div.quick-evaluate:hover{
+    background: #00afec;
+    moz-box-shadow: 2px 2px 5px #ccc, 2px 2px 5px #ccc;
+    -webkit-box-shadow: 2px 2px 5px #ccc, 2px 2px 5px #ccc;
+    box-shadow: 2px 2px 5px #ccc, 2px 2px 5px #ccc;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.home-function>div h4{
+    border: none;
+    background-color: transparent;
+    color: rgb(12, 91, 164);
+    font-size: 22px;
+    padding: 0;
+    margin: 10px 0;
+}
+.home-function>div.quick-mail:hover h4,
+.home-function>div.quick-evaluate:hover h4{
+    color: #fff;
+    transition: all 0.2s;
+}
+/*快速查询*/
+.quick-sea{
+    padding: 15px;
+}
+.quick-sea h4{
+    line-height: 36px;
+    text-align: left;
+}
+.quick-sea textarea{
+    box-sizing: border-box;
+    width: 100%;
+}
+.quick-sea button{
+    background: #005dae;
+    border: none;
+    border-radius: 5px;
+    moz-box-shadow: 2px 2px 5px #ccc, 2px 2px 5px #ccc;
+    -webkit-box-shadow: 2px 2px 5px #ccc, 2px 2px 5px #ccc;
+    box-shadow: 2px 2px 5px #ccc, 2px 2px 5px #ccc;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    height: 36px;
+    width: 100%;
+}
+.quick-sea button:hover{
+    background: #007bca;
+    transition: all 0.2s;
+}
