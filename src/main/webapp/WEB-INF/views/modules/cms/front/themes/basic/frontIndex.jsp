@@ -16,42 +16,65 @@
       <p><a href="${article.url}" class="btn btn-primary btn-large">&nbsp;&nbsp;&nbsp;查看详情 &raquo;&nbsp;&nbsp;&nbsp;</a></p>
     </div>
     <div class="row clearfix home-function">
-        <div id="quick-search">
+        <div class="service-title">
+            <h5>客户服务</h5>
+            <hr>
+            <h6>customer service</h6>
+        </div>
+        <div class="quick-service" id="quick-search">
             <i></i>
             <h4>快速查询</h4>
             <p>快速查询订单</p>
             <input type="text" placeholder="请输入快件单号" id="switch-input">
         </div>
-        <div id="quick-mail">
+        <div class="quick-service" id="quick-mail">
             <i></i>
             <h4>快速寄件</h4>
             <p>在线寄件方便快捷</p>
         </div>
-        <div id="quick-evaluate">
+        <div class="quick-service" id="quick-evaluate">
             <i></i>
             <h4>快速评价</h4>
             <p>输入单号进行评价</p>
         </div>
     </div>
-    <div class="row">
-      <div class="span4">
-        <h4><small><a href="${ctx}/list-2${urlSuffix}" class="pull-right">更多&gt;&gt;</a></small>组织机构</h4>
-		<ul><c:forEach items="${fnc:getArticleList(site.id, 2, 8, '')}" var="article">
-			<li><span class="pull-right"><fmt:formatDate value="${article.updateDate}" pattern="yyyy.MM.dd"/></span><a href="${article.url}" style="color:${article.color}">${fns:abbr(article.title,28)}</a></li>
-		</c:forEach></ul>
-      </div>
-      <div class="span4">
-        <h4> <small><a href="${ctx}/list-6${urlSuffix}" class="pull-right">更多&gt;&gt;</a></small>质量监督</h4>
-		<ul><c:forEach items="${fnc:getArticleList(site.id, 6, 8, '')}" var="article">
-			<li><span class="pull-right"><fmt:formatDate value="${article.updateDate}" pattern="yyyy.MM.dd"/></span><a href="${article.url}" style="color:${article.color}">${fns:abbr(article.title,28)}</a></li>
-		</c:forEach></ul>
-      </div>
-      <div class="span4">
-        <h4><small><a href="${ctx}/list-10${urlSuffix}" class="pull-right">更多&gt;&gt;</a></small>政策法规</h4>
-		<ul><c:forEach items="${fnc:getArticleList(site.id, 10, 8, '')}" var="article">
-			<li><span class="pull-right"><fmt:formatDate value="${article.updateDate}" pattern="yyyy.MM.dd"/></span><a href="${article.url}" style="color:${article.color}">${fns:abbr(article.title,28)}</a></li>
-		</c:forEach></ul>
-      </div>
+    <div class="row clearfix news-function">
+        <div class="news-banner">
+            <img src="" alt="">
+        </div>
+        <div class="tabbable"> <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">组织机构</a></li>
+                <li><a href="#tab2" data-toggle="tab">质量监督</a></li>
+                <li><a href="#tab3" data-toggle="tab">政策法规</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <ul class="tab-list"><c:forEach items="${fnc:getArticleList(site.id, 2, 8, '')}" var="article">
+                        <li><span class="pull-right"><fmt:formatDate value="${article.updateDate}" pattern="yyyy-MM-dd"/></span><a href="${article.url}" style="color:${article.color}">${fns:abbr(article.title,28)}</a></li>
+                    </c:forEach></ul>
+                    <div class="text-center">
+                        <a href="${ctx}/list-2${urlSuffix}" class="btn btn-primary btn-more">更多</a>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <ul class="tab-list"><c:forEach items="${fnc:getArticleList(site.id, 6, 8, '')}" var="article">
+                        <li><span class="pull-right"><fmt:formatDate value="${article.updateDate}" pattern="yyyy-MM-dd"/></span><a href="${article.url}" style="color:${article.color}">${fns:abbr(article.title,28)}</a></li>
+                    </c:forEach></ul>
+                    <div class="text-center">
+                        <a href="${ctx}/list-6${urlSuffix}" class="btn btn-primary btn-more">更多</a>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab3">
+                    <ul class="tab-list"><c:forEach items="${fnc:getArticleList(site.id, 10, 8, '')}" var="article">
+                        <li><span class="pull-right"><fmt:formatDate value="${article.updateDate}" pattern="yyyy-MM-dd"/></span><a href="${article.url}" style="color:${article.color}">${fns:abbr(article.title,28)}</a></li>
+                    </c:forEach></ul>
+                    <div class="text-center">
+                        <a href="${ctx}/list-10${urlSuffix}" class="btn btn-primary btn-more">更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="modal hide fade" id="online-mail" aria-backdrop="hidden">
         <div class="modal-header">

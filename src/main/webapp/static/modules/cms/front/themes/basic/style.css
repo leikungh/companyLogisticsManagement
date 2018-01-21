@@ -57,10 +57,43 @@ footer .footer_nav, footer .copyright{margin:5px 0;}
  */
 
 /*首页*/
+
+
+
+/*功能入口*/
 .home-function{
+    margin: 60px 0;
     padding-left: 20px;
 }
-.home-function>div{
+
+.home-function>div.service-title{
+    margin-bottom: 30px;
+}
+.home-function>div.service-title h5,
+.home-function>div.service-title h6{
+    border: none;
+    background-color: transparent;
+    font-weight: normal;
+    padding: 0;
+    margin: 10px 0;
+    text-align: center;
+}
+.home-function>div.service-title h5{
+    color: rgb(12, 91, 164);
+    font-size: 26px;
+    line-height: 30px;
+}
+.home-function>div.service-title h6{
+    color: rgb(111, 110, 110);
+    font-size: 22px;
+    line-height: 24px;
+}
+.home-function>div.service-title hr{
+    margin: 10px 0 5px;
+}
+
+
+.home-function>div.quick-service{
     border: 1px solid #aaa;
     float: left;
     height: 320px;
@@ -78,7 +111,7 @@ footer .footer_nav, footer .copyright{margin:5px 0;}
     cursor: pointer;
     transition: all 0.2s;
 }
-.home-function>div h4{
+.home-function>div.quick-service h4{
     border: none;
     background-color: transparent;
     color: rgb(12, 91, 164);
@@ -137,4 +170,32 @@ footer .footer_nav, footer .copyright{margin:5px 0;}
 /*快速评价 模态框*/
 #online-evaluate{
 
+}
+
+
+/*新闻*/
+.news-banner{
+    border: 1px solid #aaa;
+    float: left;
+    height: 240px;
+    width: 36%;
+}
+.tabbable{
+    float: right;
+    width: 60%;
+}
+ul.tab-list{
+
+}
+ul.tab-list li{
+    list-style: none;
+    line-height: 30px;
+}
+ul.tab-list li a,
+ul.tab-list li span {
+    color: #666;
+    font-size: 16px;
+}
+.btn-more{
+    width: 30%;
 }
