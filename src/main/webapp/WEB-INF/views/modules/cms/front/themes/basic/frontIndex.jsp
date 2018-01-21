@@ -168,7 +168,7 @@
             </table>
         </div>
         <div class="modal-footer">
-            <a href="#" class="btn btn-primary">提交</a>
+            <a href="#" class="btn btn-primary online-btn">提交</a>
         </div>
     </div>
     <div class="modal hide fade" id="online-evaluate" aria-backdrop="hidden">
@@ -197,7 +197,7 @@
             </table>
         </div>
         <div class="modal-footer">
-            <a href="#" class="btn btn-primary">提交</a>
+            <a href="#" class="btn btn-primary online-btn">提交</a>
         </div>
     </div>
     <script>
@@ -206,8 +206,11 @@
                 $quickSearch = $("#quick-search"),
                 $quickEvaluate = $("#quick-evaluate");
 
+
             var $onlineMail = $("#online-mail"),
-                $onlineEvaluate = $("#online-evaluate");
+                $onlineEvaluate = $("#online-evaluate"),
+                $onlineMailSub = $onlineMail.find("button.online-btn"),
+                $onlineEvaluateSub = $onlineEvaluate.find("button.online-btn");
 
             //快速查询
            var $swiInput = $("#switch-input"),
@@ -229,6 +232,30 @@
             //快速评价
             $quickEvaluate.on("click",function(){
                 $onlineEvaluate.modal();
+            });
+
+            //提交按钮
+            $onlineMailSub.click(function(){
+                $.ajax({
+                    type: "Post",
+                    dataType: "json",
+                    data: "",
+                    url: "",
+                    success: function(){
+
+                    }
+                });
+            });
+            $onlineEvaluateSub.click(function(){
+                $.ajax({
+                    type: "Post",
+                    dataType: "json",
+                    data: "",
+                    url: "",
+                    success: function(){
+
+                    }
+                });
             });
         });
     </script>
